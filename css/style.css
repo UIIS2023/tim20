@@ -1,0 +1,283 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  background-color: #f4f4f4;
+}
+
+.container {
+  padding-bottom: 20px;
+  width: 80%;
+  margin: auto;
+  overflow: hidden;
+}
+
+.container1 {
+  text-align: center;
+  width: 80%;
+  margin: auto;
+  overflow: hidden;
+}
+
+ul {
+  margin: 1;
+  padding: 1;
+}
+
+.dark {
+  padding: 15px;
+  background: #35424a;
+  color: #ffffff;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+header {
+  background: #35424a;
+  color: #ffffff;
+  padding-top: 30px;
+  min-height: 70px;
+  border-bottom: lightseagreen 3px solid;
+}
+
+/* svi linkovu u Header -u , bela slova - ffffff , velika slova, veličina */
+header a {
+  color: #ffffff;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 16px;
+}
+
+/*header li pravi horizontalnim: home, o nama... , padding levo i desno: 0,20,0,20 : gore, levo, dole, desno  */
+header li {
+  float: left;
+  display: inline;
+  padding: 0px 20px 0px 20px;
+}
+
+header #naziv {
+  float: left;
+}
+
+header #naziv h1 {
+  font-family: sans-serif;
+  font-style: italic;
+  margin: 0;
+  font-size: 40px;
+}
+
+header nav {
+  float: right;
+  margin-top: 20px;
+}
+
+/*naglašavam reč u drugoj boji, mora span u h1 sa clasom highlight, kao i klasu current koju dodajem za a (href)unutar li*/
+header .highlight,
+header .current a {
+  color: lightseagreen;
+  font-weight: bold;
+}
+
+/*pravim drugu boju, kad staneš na neki li, cccccc - siva*/
+header a:hover {
+  color: lightgreen;
+}
+
+
+/*id prvi_deo u  section, svaki id počinje sa # ,  color:#ffffff - bela;   background:url('../img/pozadina.png')*/
+#prvi_deo {
+  min-height: 200px;
+  background: url('../img/pozadina.png') no-repeat;
+  background-position: center;
+  background-size: cover;
+  text-align: center;
+  color: #ffffff;
+  text-align: center;
+  color: #ffffff;
+}
+
+#prvi_deo1 {
+  min-height: 200px;
+  background: url('../img/ram.JPG') no-repeat;
+  background-position: center;
+  background-size: cover;
+  text-align: center;
+  color: #ffffff;
+}
+
+#prvi_deo2 {
+  min-height: 200px;
+  background: url('../img/pozadina1.JPG') no-repeat;
+  background-position: center;
+  background-size: cover;
+  text-align: center;
+  color: #ffffff;
+}
+
+/*spuštam text dole*/
+#prvi_deo h1 {
+  font-family: sans-serif;
+  font-size: 55px;
+  font-style: italic;
+  margin-top: 45px;
+  margin-bottom: 10px;
+}
+
+#prvi_deo1 h1 {
+  font-family: sans-serif;
+  font-size: 55px;
+  font-style: italic;
+  margin-top: 45px;
+  margin-bottom: 10px;
+}
+
+#prvi_deo2 h1 {
+  font-family: sans-serif;
+  font-size: 55px;
+  font-style: italic;
+  margin-top: 45px;
+  margin-bottom: 10px;
+}
+
+#prvi_deo p {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* pading svuda okolo, beo font, a tamno siva pozadina #35424a  */
+#drugi_deo {
+  padding: 3px;
+  color: #ffffff;
+  background: #35424a;
+}
+
+/*h1 ide na levo, a forma desno*/
+#drugi_deo h1 {
+  float: center;
+  font-size: 20px;
+  margin-bottom: 3px;
+  margin-top: 3px;
+}
+
+#treci_deo {
+  margin-top: 10px;
+}
+
+/*treci deo, delim na 3 dela - boxa , širina 30%  */
+#treci_deo .box {
+  float: left;
+  text-align: center;
+  width: 30%;
+  padding: 10px;
+}
+
+#treci_deo .box img {
+  width: 100%;
+  height: auto;
+  border: 10px solid #555;
+}
+
+/* levo */
+div#levo {
+  float: left;
+  width: 65%;
+}
+
+/* desno */
+div#desno {
+  float: right;
+  width: 30%;
+  margin-top: 10px;
+}
+
+footer {
+  padding: 10px;
+  /* margin-top:20px; */
+  color: #ffffff;
+  background-color: lightseagreen;
+  text-align: center;
+}
+
+
+/***galerija tabelarna */
+* {
+  box-sizing: border-box;
+}
+
+.row>.column {
+  padding: 8px 8px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.column {
+  float: left;
+  width: 25%;
+}
+
+.hover-shadow:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+/******** kontakt forma ********/
+.contact-col input,
+.contact-col textarea {
+  width: 50%;
+  padding: 15px;
+  margin-bottom: 17px;
+  border: 1px solid #ccc;
+}
+
+button {
+  background-color: darkcyan;
+  color: white;
+  padding: 10px;
+  margin-top: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 50%;
+}
+
+button:hover {
+  background-color: #f44336;
+}
+
+
+/****** tabela *******/
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+  color: black;
+}
+
+/****** timer *****/
+#timer {
+  font-size: 24px;
+  font-weight: bold;
+  color: #007bff;
+}
+
+#poruka {
+  margin-top: 20px;
+  font-weight: bold;
+  color: #f21515;
+}

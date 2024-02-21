@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galerija sa slajderom</title>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        #gallery-container {
+            width: 80%;
+            max-width: 600px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        #prev-btn,
+        #next-btn {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 24px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            outline: none;
+        }
+
+        #prev-btn {
+            left: 10px;
+        }
+
+        #next-btn {
+            right: 10px;
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <div id="gallery-container">
+        <div id="slider">
+
+            <div class="slide"><img src="./img/galerija/1.jpg" alt="Slika 1"></div>
+            <div class="slide"><img src="./img/galerija/2.jpg" alt="Slika 2"></div>
+            <div class="slide"><img src="./img/galerija/3.jpg" alt="Slika 3"></div>
+            <div class="slide"><img src="./img/galerija/4.jpg" alt="Slika 4"></div>
+            <div class="slide"><img src="./img/galerija/5.jpg" alt="Slika 5"></div>
+            <div class="slide"><img src="./img/galerija/6.jpg" alt="Slika 6"></div>
+            <div class="slide"><img src="./img/galerija/7.jpg" alt="Slika 7"></div>
+            <div class="slide"><img src="./img/galerija/8.jpg" alt="Slika 8"></div>
+            <div class="slide"><img src="./img/galerija/8.jpg" alt="Slika 9"></div>
+
+        </div>
+        <button id="prev-btn" onclick="prevSlide()">&#10094;</button>
+        <button id="next-btn" onclick="nextSlide()">&#10095;</button>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            const slider = document.getElementById('slider');
+            const slides = document.getElementsByClassName('slide');
+            if (index >= slides.length) {
+                currentSlide = 0;
+            } else if (index < 0) {
+                currentSlide = slides.length - 1;
+            } else {
+                currentSlide = index;
+            }
+            slider.style.transform = `translateX(${-currentSlide * 100}%)`;
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+
+        // Automatsko prebacivanje na sledeću sliku svakih 2 sekunde
+        setInterval(nextSlide, 2000);
+    </script>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Crystal | Kviz</title>
+	<link rel="stylesheet" href="./css/style.css">
+
+</head>
+
+<body>
+	<header>
+		<div class="container">
+			<div id="naziv">
+				<h1><span class="highlight">CRISTAL</span> - optičarska radnja</h1>
+
+			</div>
+			<nav>
+				<ul>
+					<li><a href="index.html">Naslovna</a></li>
+					<li><a href="usluge.html">Usluge</a></li>
+					<li><a href="galerija.html">Galerija</a></li>
+					<li class="current"><a href="kviz.html">Kviz</a></li>
+					<li><a href="slider.html">Slider</a></li>
+				</ul>
+
+			</nav>
+		</div>
+	</header>
+
+	<section id="prvi_deo2">
+		<div class="container">
+			<!--<h1>Optika Crystal</h1>-->		
+		</div>
+	</section>
+
+	<section id="drugi_deo">
+		<div class="container">
+			<h1>Testirajte Vaše znanje:</h1>
+	</section>
+
+	<section id="main">
+		<div class="container">
+			<div id="levo">
+				<h2>Koja vrsta naočara se koristi za čitanje?</h2>
+				<ul>
+					<li onclick="proveriOdgovor('netacno', 'odgovor1')">Sunčane naočare</li>
+					<li onclick="proveriOdgovor('netacno', 'odgovor1')">3D naočare</li>
+					<li onclick="proveriOdgovor('tacno', 'odgovor1')">Dioptrijske naočare</li>
+					<li onclick="proveriOdgovor('netacno', 'odgovor1')">Sportske naočare</li>
+				</ul>
+
+				<p id="odgovor1"></p>
+
+				<h2>Koja boja stakala štiti od sunca?</h2>
+				<ul>
+					<li onclick="proveriOdgovor('netacno', 'odgovor2')">Crna</li>
+					<li onclick="proveriOdgovor('tacno', 'odgovor2')">Braon</li>
+					<li onclick="proveriOdgovor('netacno', 'odgovor2')">Siva</li>
+					<li onclick="proveriOdgovor('netacno', 'odgovor2')">Zelena</li>
+				</ul>
+
+				<p id="odgovor2"> </p>
+
+
+				<h2>Šta označava broj na okviru naočara?</h2>
+				<ul>
+					<li onclick="proveriOdgovor('netacno', 'odgovor3')">Veličinu okvira</li>
+					<li onclick="proveriOdgovor('tacno', 'odgovor3')">Širinu stakala</li>
+					<li onclick="proveriOdgovor('netacno', 'odgovor3')">Širinu mosta</li>
+					<li onclick="proveriOdgovor('netacno', 'odgovor3')">Širinu stakala i mosta</li>
+				</ul>
+
+				<p id="odgovor3"></p>
+
+			
+				<script>
+					function proveriOdgovor(kliknuto, odgovorId) {
+
+					// Provera koja stavka je kliknuta i postavljanje odgovarajućeg teksta
+						if (kliknuto == 'tacno') {
+							document.getElementById(odgovorId).innerHTML = "<strong>Tačno!</strong>";
+						} else {
+							document.getElementById(odgovorId).innerHTML = "<strong>Netačno!</strong>";
+						}
+					}
+				</script>
+
+			</div>
+
+			<div id="desno">
+				<img id="slika" src="img/kviz.png" style="height: 300px">
+
+				<div>
+					<h2 id="ostalo">Ostalo je još:</h2>
+					<div id="timer">00:00</div>
+					<h2 id="poruka"></h2>
+				</div>
+
+			</div>
+		</div>
+	</section>
+
+
+	<script>
+		// Postavljam broj sekundi za odbrojavanje
+		let countdownSeconds = 20;
+
+		// Prikazujem inicijalno vrijeme
+		displayTime(countdownSeconds);
+
+		// Pokrecem odbrojavanje
+		const timerInterval = setInterval(() => {
+			countdownSeconds -= 1;
+			displayTime(countdownSeconds);
+
+			if (countdownSeconds === 0) {
+				clearInterval(timerInterval);
+				document.getElementById('ostalo').innerText = '';
+				document.getElementById('poruka').innerText = 'Vreme je isteklo!';
+				document.getElementById('slika').src = 'img/tuzan.gif';
+				document.getElementById('slika').style.height = '300px';
+			}
+
+			if (document.getElementById('odgovor1').innerText === 'Tačno!' & document.getElementById('odgovor2').innerText === 'Tačno!' & document.getElementById('odgovor3').innerText === 'Tačno!') {
+				clearInterval(timerInterval);
+				document.getElementById('poruka').innerText = 'Bravo, svi odgovori su tačni!';
+				document.getElementById('slika').src = 'img/vatromet3.gif';
+				document.getElementById('slika').style.height = '300px';
+
+			}
+
+		}, 1000);
+
+		function displayTime(seconds) {
+			const minutes = Math.floor(seconds / 60);
+			const remainingSeconds = seconds % 60;
+
+			const formattedMinutes = padZero(minutes);
+			const formattedSeconds = padZero(remainingSeconds);
+
+			document.getElementById('timer').innerText = `${formattedMinutes}:${formattedSeconds}`;
+		}
+
+		function padZero(number) {
+			return number < 10 ? '0' + number : number;
+		}	
+			
+	</script>
+
+	<footer>
+		<p>Copyright &copy; Milana Ćoškov IT35/2024</p>
+	</footer>
+
+
+</body>
+</html>
